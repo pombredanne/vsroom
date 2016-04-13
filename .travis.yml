@@ -10,6 +10,6 @@ addons:
       name: "softcert/vsroom"
       description: "Virtual Situation Room for visualizing Abusehelper events."
     # notification_email:  
-    # build_command_prepend: "<Your build preprocessing command here>"
-    # build_command:   "<Your build command here>"
+    build_command_prepend: ""
+    build_command:   ""
     branch_pattern: master
