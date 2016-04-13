@@ -1,0 +1,26 @@
+{
+  "name": "vsroom",
+  "version": "1.0.0",
+  "description": "Virtual Situation Room for visualizing Abusehelper events.",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "grunt makedist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/softcert/vsroom.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/softcert/vsroom/issues"
+  },
+  "homepage": "https://github.com/softcert/vsroom#readme",
+  "dependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-compress": "^1.2.0"
+  }
+}
