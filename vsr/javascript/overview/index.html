@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+  <head>
+    <title>VSRoom</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+    <link rel="apple-touch-icon" sizes="57x57" href="icon57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="icon72x72.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="icon114x114.png" />
+
+    <link href="../common/View.css" type="text/css" rel="stylesheet" />
+    <link href="../common/PopUp.css" type="text/css" rel="stylesheet" />
+    <link href="../common/ToolTip.css" type="text/css" rel="stylesheet" />
+    <link href="../common/LoginForm.css" type="text/css" rel="stylesheet" />
+    <link href="../common/Filter.css" type="text/css" rel="stylesheet" />
+    <link href="../classification/ClassificationView.css" rel="stylesheet" />
+    <link href="../polymaps/polymaps.css" rel="stylesheet" />
+    <link href="../listview/ListView.css" rel="stylesheet" />
+    <link href="../chartview/ChartView.css" type="text/css" rel="stylesheet" />
+    <link href="ViewManager.css" type="text/css" rel="stylesheet" />
+    <link href="overview.css" type="text/css" rel="stylesheet" />
+
+    <script src="../common/mootools-core.js"></script>
+    <script src="../common/mootools-more.js"></script>
+    <script src="../common/strophe.js"></script>
+
+    <script src="../common/EventSource.js"></script>
+    <script src="../common/Observable.js"></script>
+    <script src="../common/Container.js"></script>
+    <script src="../common/Translate.js"></script>
+    <script src="../common/AVLTree.js"></script>
+    <script src="../common/Heap.js"></script>
+    <script src="../common/History.js"></script>
+    <script src="../common/Combiner.js"></script>
+    <script src="../common/Histogram.js"></script>
+    <script src="../common/XMPP.js"></script>
+    <script src="../common/AHEvent.js"></script>
+    <script src="../common/View.js"></script>
+    <script src="../common/TimeLabel.js"></script>
+    <script src="../common/ToolTip.js"></script>
+    <script src="../common/ObservableInput.js"></script>
+    <script src="../common/LoginForm.js"></script>
+    <script src="../common/TimeLine.js"></script>
+    <script src="../common/md5.js"></script>
+    <script src="../common/PopUp.js"></script>
+
+    <script src="../polymaps/polymaps.js"></script>
+    <script src="../polymaps/PolymapsView.js"></script>
+    <script src="../listview/ListView.js"></script>
+    <script src="../classification/ClassificationView.js"></script>
+    <script src="../chartview/ChartView.js"></script>
+    <script src="../keymap/KeyMap.js"></script>
+    <script src="../categorilla/Categorilla.js"></script>
+    <script src="../categorilla/CategorillaView.js"></script>
+
+    <script src="../common/Parser.js"></script>
+    <script src="../common/Filter.js"></script>
+    <script src="ViewManager.js"></script>
+
+    <!-- <script src="INSERT_LOCALIZATION_FILE_HERE"></script> -->
+    <script src="overview.js"></script>
+  </head>
+
+  <body>
+    <div id="headerbar-container">
+      <div id="headerbar">
+        <div id="new-view"></div>
+        <div id="timelabel"></div>
+        <div id="filter"></div>
+        <div id="share"></div>
+      </div>
+    </div>
+
+    <div id="notification">!</div>
+
+    <div id="area-container">
+        <div id="area">
+            <div id="timeline-frame">
+                <div id="timeline"></div>
+            </div>
+            <div id="mainpanel"></div>
+        </div>
+        <span id="help">?</span>
+    </div>
+  </body>
+</html>

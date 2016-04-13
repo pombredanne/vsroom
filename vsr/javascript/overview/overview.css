@@ -1,0 +1,322 @@
+html, body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
+
+
+* {
+    /*
+    Work around OSX Lion scrollbars shifting around on Chrome and Safari
+    when e.g. an input field gets focused.
+    */
+    outline-width: thin;
+}
+
+body {
+    overflow: hidden;
+    cursor: default;
+
+    font-family: Verdana, Sans, Sans-Serif;
+    color: white;
+    background: url("background.png");
+
+    -webkit-tap-highlight-color: transparent;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+#headerbar-container {
+    position: absolute;
+    top: 0px;
+    height: 2em;
+    right: 50px;
+    left: 50px;
+    z-index: 1;
+}
+
+#headerbar {
+    position: relative;
+    width: 100%;
+
+    vertical-align: middle;
+
+    display: box;
+    display: -webkit-box;
+    display: -moz-box;
+
+    box-orient: horizontal;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+}
+
+#timelabel, #filter, #new-view, #share {
+    position: relative;
+    display: block;
+    color: white;
+
+    background: -webkit-gradient(linear, left top, left bottom, from(#555), to(#111));
+    background: -moz-linear-gradient(top, #555, #111);
+
+    border: 1px solid rgba(0, 0, 0, 0.15);
+
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+
+    border-top: none;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #222;
+    padding: 0.25em 1em;
+    line-height: 150%;
+    margin-left: 1px;
+    margin-right: 1px;
+    border-radius: 0px 0px 4px 4px;
+}
+
+#timelabel:hover, #new-view:hover, #share:hover {
+    background: -webkit-gradient(linear, left top, left bottom, from(#888), to(#444));
+    background: -moz-linear-gradient(top, #888, #444);
+
+    cursor: pointer;
+}
+
+#timelabel {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    box-flex: 1;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+}
+
+#timelabel.frozen {
+    background: -webkit-gradient(linear, left top, left bottom, from(#833), to(#500));
+    background: -moz-linear-gradient(top, #833, #500);
+}
+
+#timelabel.frozen:hover {
+    background: -webkit-gradient(linear, left top, left bottom, from(#a33), to(#500));
+    background: -moz-linear-gradient(top, #a33, #500);
+}
+
+#area-container {
+    position: absolute;
+    top: 2em;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+#area {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    display: box;
+    display: -webkit-box;
+    display: -moz-box;
+
+    box-orient: vertical;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+}
+
+#timeline-frame {
+    position: relative;
+
+    display: block;
+    margin-right: 60px;
+    margin-left: 60px;
+    height: 120px;
+    border-radius: 0px 0px 5px 5px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: none;
+
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+
+    padding: 5px;
+    padding-bottom: 0px;
+    padding-top: 1px;
+    z-index: 99;
+}
+
+#timeline-frame.hidden {
+    display: none;
+}
+
+#timeline-frame #timeline {
+    position: absolute;
+    top: 5px;
+    bottom: 5px;
+    left: 3px;
+    right: 3px;
+}
+
+#notification {
+    position: absolute;
+    display: block;
+    width: 23px;
+    text-align: center;
+    border-radius: 8px;
+
+    top: 0;
+    right: 8px;
+    padding: 3px;
+    font-size: larger;
+
+    -webkit-transition: all 1.5s;
+    opacity: 0.3;
+    background: #555;
+    border: 1px solid #bbb;
+}
+
+#notification.blink {
+    opacity: 0.8;
+    background: #BA3E00;
+    border: 1px solid #BA3E00;
+}
+
+.tooltip.notification {
+    position: absolute;
+    top: 35px !important;
+    left: auto !important;
+    right: 5px !important;
+    width: 200px !important;
+    padding: 7px;
+    opacity: 1;
+    -webkit-transition: opacity 1s;
+}
+
+#filter {
+    padding-left: 0.62em;
+    padding-right: 0.62em;
+}
+
+#filter input {
+    display: block;
+    width: 100%;
+
+    border-radius: 3px;
+    margin: 0px;
+    padding: 0.75em;
+    height: 2em;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+#mainpanel {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    position: relative;
+
+    box-flex: 1;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+}
+
+.popup .share {
+    min-width: 500px;
+}
+
+.popup .url,
+.popup .json {
+    width: 100%;
+    cursor: pointer;
+}
+
+.popup .roster {
+    margin-right: 5px;
+    width: 80%;
+}
+
+.popup .json {
+    height: 200px;
+}
+
+.popup .menu {
+    min-width: 300px;
+}
+
+.popup .menu-item {
+    padding: 0.25em;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.popup .menu-item:hover {
+    background: white;
+    color: rgba(60, 60, 60, 0.95);
+
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 1.0);
+    -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 1.0);
+    -moz-box-shadow: 0px 0px 10px rgba(255, 255, 255, 1.0);
+}
+
+.popup .menu-item:active {
+    color: rgba(60, 60, 60, 0.6);
+
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+#help {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+
+    font-size: 1.5em;
+    color: #ccc;
+    text-align: center;
+    cursor: pointer;
+}
+
+#help:hover {
+    color: white;
+
+}
+
+.popup .help table {
+    padding: 0.25em;
+}
+
+.popup .help td {
+    padding: 0.25em;
+    margin: 0 1em;
+}
+
+.popup .help td:first-child {
+    white-space: nowrap;
+    padding-right: 50px;
+}
+.popup .help table span {
+    text-align: center;
+    display: inline-block;
+    border: 2px solid grey;
+    padding: 4px;
+    border-radius: 4px;
+    min-width: 16px;
+}
+
+.popup .help th {
+    padding-top: 1em;
+}

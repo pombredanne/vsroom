@@ -1,0 +1,14 @@
+{"views":[
+
+  {"type":"classification","name":"Microblogs from critical sector actors highlited by problems.",
+    "settings":{"xKey":null,"xGroupKey":"sector","yKey":"src","yGroupKey":null,"valueCombiner":{"func":"max","key":"status"},"filter":"type=microblog"}},
+
+  {"type":"list","name":"Event details",
+    "settings":{"filter":null}},
+
+  {"type":"classification","name":"Direct messages highlited by # of followers.",
+    "settings":{"xKey":"src","xGroupKey":null,"yKey":"dst","yGroupKey":null,"valueCombiner":{"func":"sum","key":"followers"},"filter":null}},
+
+  {"type":"classification","name":"Event types hilighted by # of events",
+    "settings":{"xKey":"type","xGroupKey":null,"yKey":"subtype","yGroupKey":null,"valueCombiner":null,"filter":null}}]}
+

@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css" href="planner.css" />
+
+<script src="../common/mootools-core.js"></script>
+
+<script src="../common/Observable.js"></script>
+<script src="../common/Container.js"></script>
+<script src="../common/ToolTip.js"></script>
+<script src="../common/View.js"></script>
+<script src="../common/ObservableInput.js"></script>
+
+<script src="ItemView.js"></script>
+<script src="GraphView.js"></script>
+<script src="planner.js"></script>
+
+<body>
+
+<div id="graph"></div>
+
+<div id="item-container">
+  <div id="items">
+    <button tabindex="-1" class="button-discard" id="item-delete">X</button>
+    <input id="item-name" type="text" />
+  </div>
+  <div class="clear-div"></div>
+  
+  <div id="item-details">
+    <div id="choose">
+      Choose an item by writing its name to the above text field.
+    </div>
+    
+    <div id="create">
+        Create this item by clicking <button id="new-item-button">here</button>.
+    </div>
+    
+    <div id="edit">
+      <div id="item">
+        <div class="item-key">
+          <div class="item-key-edit" style="float: left;">
+            <button tabindex="-1" class="button-discard">X</button>
+            <input class="item-key-input" type="text" />
+          </div>
+          
+          <div style="float: right">
+            <div class="item-key-values">
+              <div class="item-key-value">
+                <button tabindex="-1" class="button-discard">X</button>
+                <input class="item-key-value-input" type="text" />
+                <div class="clear-div"></div>
+              </div>
+            </div>
+            
+            <button class="new-value-button" style="float: right;">New value</button>
+            <div class="clear-div"></div>
+          </div>
+          <div class="clear-div"></div>
+        </div>
+      </div>
+      
+      <div id="item-edit">
+        <button id="new-key-button">New key</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button id="csv-button" tabindex="-1" class="button-discard">
+  CSV
+</button>
+
+<div id="csv-overlay" class="overlay">
+  <div id="csv-container">
+    <textarea id="csv-editor" style="width: 100%; height: 300px;"></textarea>
+
+    <button id="csv-import-button" style="float: right;">Import</button>
+    <button id="csv-cancel-button" style="float: right;">Cancel</button>
+    <div class="clear-div"></div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+{
+    "views": [
+        {
+            "type": "chart",
+            "name": "Kõnejärjekordade viited sekundites.",
+            "settings": {
+                "key": "organisatsioon",
+                "valueKey": "viide sekundites",
+                "valueCombiner": {
+                    "func": "max",
+                    "key": "viide sekundites"
+                },
+                "filter": null
+            }
+        },
+        {
+            "type": "classification",
+            "name": "Elutähtsate teenuste olukord.",
+            "settings": {
+                "xKey": "teenus",
+                "xGroupKey": "valdkond",
+                "yKey": "tüüp",
+                "yGroupKey": "timing",
+                "valueCombiner": {
+                    "func": "max",
+                    "key": "staatus"
+                },
+                "filter": null
+            }
+        },
+        {
+            "type": "map",
+            "name": "Probleemid, värvitud tüübi järgi, suurus mõjutatud klientide arvu järgi.",
+            "settings": {
+                "groupBy": "tüüp",
+                "areas": null,
+                "valueKey": null,
+                "valueCombiner": {
+                    "func": "sum",
+                    "key": "mõjutatud kliendid"
+                },
+                "bounds": {
+                    "left": 20.696444003319918,
+                    "right": 29.019062408807116,
+                    "top": 59.793894831242056,
+                    "bottom": 57.28601646463727
+                },
+                "filter": null
+            }
+        },
+        {
+            "type": "map",
+            "name": "Probleemid, värvitud teenuste järgi, suurus staatuse järgi.",
+            "settings": {
+                "groupBy": "teenus",
+                "areas": null,
+                "valueKey": null,
+                "valueCombiner": {
+                    "func": "sum",
+                    "key": "staatus"
+                },
+                "bounds": {
+                    "left": 20.696444003319918,
+                    "right": 29.019062408807116,
+                    "top": 59.8151429306223,
+                    "bottom": 57.30884148050865
+                },
+                "filter": null
+            }
+        },
+        {
+            "type": "list",
+            "name": "Sündmuste nimekiri",
+            "settings": {
+                "filter": null
+            }
+        },
+        {
+            "type": "list",
+            "name": "Mikroblogi teated osaliste poolt",
+            "settings": {
+                "filter": "mikroblogi"
+            }
+        }
+    ]
+}

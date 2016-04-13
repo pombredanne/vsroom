@@ -1,0 +1,142 @@
+#!/bin/sh 
+
+myerr() { 
+ echo "ERR: $*" 1>&2 
+ echo "     Aborting." 1>&2 
+ exit 1 
+} 
+
+usage() {
+ echo "Usage: $0 <start|stop|restart|status|>" 1>&2
+ exit 1
+}
+
+if_running() {
+    PSAUX=`ps auxw | grep "^${USER}" | grep ${PYTHON} | grep "vsroom.common" | grep -v grep`
+    if echo $PSAUX | grep -q "^${USER}"; then
+	systemrunning=1
+    else
+	systemrunning=0
+    fi
+}
+kill_startup() {
+    PROC=$1
+    PROCS=$(ps auxw|grep _vsroom|grep "${PROC}"|grep -v grep | tr -s " ")
+    if echo ${PROCS} | grep -q -r ^[0-9]
+    then
+	for i in ${PROCS}; do
+	    ${SU} ${USER} -c "kill $i"
+	done
+    fi
+}
+
+kill_rest() {
+    PROC=$1
+    PROCS=$(ps auxw | grep "^${USER}" | grep ${PYTHON} | grep "${PROC}" | grep -v grep | awk '{print $2}')
+    if echo ${PROCS} | grep -q -r ^[0-9]
+    then
+	for i in ${PROCS}; do
+	    ps aux|grep $i |grep -q ${PROC}
+	    ps aux|grep $i |grep -q ${PROC}
+	    if [ $? -eq 0 ]
+	    then
+		
+		${SU} ${USER} -c "kill $i"
+	    fi
+	done
+    fi
+
+    PROCS=$(ps auxw | grep "^${USER}" | grep ${PYTHON} | grep "${PROC}" | grep -v grep | awk '{print $2}')
+    if echo ${PROCS} | grep -q -r ^[0-9]
+    then
+	for i in ${PROCS}; do
+	    ps aux|grep $i |grep -q ${PROC}
+	    if [ $? -eq 0 ]
+	    then
+		${SU} ${USER} -c "kill -9 $i"
+	    fi
+	done
+    fi
+
+}
+
+
+PYTHON="python"
+USER="vsroom"
+GROUP="vsroom"
+SU="su -"
+UNAME=$(uname)
+
+case "${UNAME}" in
+    "Darwin")
+        SU="su -"
+        ;;
+    "OpenBSD")
+        SU="su -" 
+        USER="_vsroom"
+	GROUP="_vsroom"
+        ;;
+    "Linux")
+	;;
+    *)
+        ;;
+esac
+
+
+
+USECASEDIR="/var/lib/vsroom/production/public-sources"
+STARTUP="${USECASEDIR}/startup-creds.py"
+LOGDIR="${USECASEDIR}/log"
+
+if [ "$#" -ne "1" ] 
+then
+    usage
+fi
+
+case "$1" in
+    start)
+	if_running
+	if [ $systemrunning -eq 0 ]; then
+            ${SU} ${USER} -c "(cd ${USECASEDIR}/; sh run.sh  > ${USECASEDIR}/${2}/log/run.log 2>&1 )" &
+	    echo "VSR started."
+       	    echo "Check logfiles in ${USECASEDIR}/log/ to see the VSR status."
+	else
+	    echo "VSR already running, nothing started"
+	fi
+	;;
+
+    stop)
+	if_running
+	if [ $systemrunning -eq 1 ]; then
+	    echo "Killing startup..."
+	    kill_startup "startup-creds.py"
+	    echo "Done."
+	    sleep 2
+	    echo "Killing the remaining processes..."
+	    kill_rest "\-\-startup"
+ 	    echo 'Done.'
+	else
+	    echo "VSR already stopped, no action"
+	fi
+	;;
+
+    restart)
+	$0 stop
+	sleep 2
+	$0 start
+	;;
+    status)
+	if_running
+	if [ $systemrunning -eq 1 ]; then
+	    echo "Below is a list of currently running VSR processes:\n"
+	    ps auxw | grep "^${USER}" | grep ${PYTHON} | grep '\-\-startup' | grep -v grep | tr -s " "
+	else
+	    echo "There are no running VSR-processes."
+	fi
+	;;
+
+    *)
+	usage
+	;;
+	
+esac

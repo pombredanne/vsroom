@@ -1,0 +1,17 @@
+{"views":[
+
+  {"type":"classification","name":"Osaliste mikroblogide ülevaade, intensiivsus maksimaalse probleemi järgi.",
+    "settings":{"xKey":null,"xGroupKey":"valdkond","yKey":"allikas","yGroupKey":null,"valueCombiner":{"func":"max","key":"staatus"},"filter":"type=mikroblogi"}},
+
+  {"type":"list","name":"Sündmuste detailne info",
+    "settings":{"filter":null}},
+
+  {"type":"classification","name":"Edastatud teated, intensiivsus järgijate arvu järgi.",
+    "settings":{"xKey":"allikas","xGroupKey":null,"yKey":"sihtkoht","yGroupKey":null,"valueCombiner":{"func":"sum","key":"järgijad"},"filter":null}},
+
+  {"type":"classification","name":"Edastatud teated, intensiivsus teadete staatuse järgi.",
+    "settings":{"xKey":"allikas","xGroupKey":null,"yKey":"sihtkoht","yGroupKey":null,"valueCombiner":{"func":"sum","key":"staatus"},"filter":null}},
+
+  {"type":"classification","name":"Edastatud teadete tüübid, intensiivsus teadete arvu järgi.",
+    "settings":{"xKey":"tüüp","xGroupKey":null,"yKey":"alamtüüp","yGroupKey":null,"valueCombiner":null,"filter":null}}]}
+

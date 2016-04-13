@@ -1,0 +1,83 @@
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+.copy {
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  padding-right: 5px;
+  font: 9px sans-serif;
+  cursor: default;
+  color: black;
+}
+
+.lock {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  width: 30px;
+  height: 40px;
+  fill: #999;
+  stroke: #999;
+  stroke-width: 3px;
+  fill-opacity: .9;
+  stroke-opacity: .9;
+}
+
+.lock:hover {
+  fill: #777;
+  stroke: #777;
+}
+.compass .back {
+  fill: #eee;
+  fill-opacity: .8;
+}
+
+.compass .fore {
+  stroke: #999;
+  stroke-width: 1.5px;
+}
+
+.compass .direction {
+  fill: none;
+}
+
+.compass .chevron {
+  fill: none;
+  stroke: #999;
+  stroke-width: 5px;
+}
+
+.compass .zoom .chevron {
+  stroke-width: 4px;
+}
+
+.compass .active .chevron, .compass .chevron.active {
+  stroke: #fff;
+}
+
+.compass.active .active .direction {
+  fill: #999;
+}
+
+.mapMarker {
+    stroke-width: 1.3px;
+    stroke-opacity: 0.6;
+    stroke: brown;
+
+    fill-opacity: 0.2;
+    fill: brown;
+}
+
+.mapMarker.selected {
+    stroke-width: 2px;
+    stroke-opacity: 0.8;
+    fill-opacity: 0.7;
+}
+
+.mapMarker:hover {
+    fill-opacity: 0.5;
+}

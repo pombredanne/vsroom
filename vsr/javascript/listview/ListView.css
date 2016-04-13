@@ -1,0 +1,27 @@
+.list {
+    color: black;
+}
+
+.list .list-item {
+    background: white;
+
+    padding: 0.3em;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+
+    border-bottom: 1px solid lightgrey;
+
+    font-size: 0.9em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.list .list-item.highlighted {
+    background: lightgrey;
+}
+
+.list .list-item.selected {
+    color: white;
+    background-color: #3879d9;
+}

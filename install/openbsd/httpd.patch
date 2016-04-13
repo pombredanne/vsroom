@@ -1,0 +1,62 @@
+--- httpd.conf.orig	Mon Oct 25 21:18:36 2010
++++ httpd.conf	Mon Oct 25 21:20:48 2010
+@@ -255,7 +255,7 @@
+ # LoadModule mmap_static_module	/usr/lib/apache/modules/mod_mmap_static.so
+ 
+ # rule-based rewriting engine to rewrite requested URLs on the fly
+-# LoadModule rewrite_module	/usr/lib/apache/modules/mod_rewrite.so
++LoadModule rewrite_module	/usr/lib/apache/modules/mod_rewrite.so
+ 
+ # attempt to correct misspellings of URLs that users might have entered
+ # LoadModule speling_module	/usr/lib/apache/modules/mod_speling.so
+@@ -270,7 +270,7 @@
+ # LoadModule vhost_alias_module	/usr/lib/apache/modules/mod_vhost_alias.so
+ 
+ # caching proxy
+-# LoadModule proxy_module	/usr/lib/apache/modules/libproxy.so
++LoadModule proxy_module	/usr/lib/apache/modules/libproxy.so
+ 
+ #
+ # Include extra module configuration files
+@@ -403,7 +403,7 @@
+ # override. Can also be "All", or any combination of "Options", "FileInfo", 
+ # "AuthConfig", and "Limit"
+ #
+-    AllowOverride None
++    AllowOverride All
+ 
+ #
+ # Controls who can get stuff from this server.
+@@ -890,15 +890,15 @@
+ # Proxy Server directives. Uncomment the following lines to
+ # enable the proxy server:
+ #
+-#<IfModule mod_proxy.c>
+-#ProxyRequests On
+-#
+-#<Directory proxy:*>
+-#    Order deny,allow
+-#    Deny from all
+-#    Allow from .your_domain.com
+-#</Directory>
++<IfModule mod_proxy.c>
++ProxyRequests On
+ 
++<Directory proxy:*>
++    Order deny,allow
++    Deny from all
++    Allow from .your_domain.com
++</Directory>
++
+ #
+ # Enable/disable the handling of HTTP/1.1 "Via:" headers.
+ # ("Full" adds the server version; "Block" removes all outgoing Via: headers)
+@@ -918,7 +918,7 @@
+ #CacheDefaultExpire 1
+ #NoCache a_domain.com another_domain.edu joes.garage_sale.com
+ 
+-#</IfModule>
++</IfModule>
+ # End of proxy directives.
+ 
+ ### Section 3: Virtual Hosts

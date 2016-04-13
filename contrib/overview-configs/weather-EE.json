@@ -1,0 +1,22 @@
+{"views":[
+
+  {"type":"map","name":"Meteoroloogilised andmed, värvitud tüübi järgi, suurus potentsiaalse probleemi järgi.",
+    "settings":{"groupBy":"alamtüüp","valueKey":null,"valueCombiner":{"func":"max","key":"tõsidus"},"bounds":{"left":22.312653400028733,"right":30.32548198199108,"top":59.8504234803076,"bottom":57.46573659236725},"filter":null}},
+
+  {"type":"classification","name":"Risttabel meteoroloogiliste allikate kaupa",
+    "settings":{"xKey":"teenus","xGroupKey":"organisatsioon","yKey":"tüüp","yGroupKey":null,"valueCombiner":{"func":"max","key":"staatus"},"filter":null}},
+
+  {"type":"classification","name":"Risttabel asukohtade kaupa",
+    "settings":{"xKey":"asukoht","xGroupKey":"teenus","yKey":"alamtüüp","yGroupKey":"tüüp","valueCombiner":{"func":"sum","key":"staatus"},"filter":null}},
+
+  {"type":"list","name":"Sündmuste detailne info",
+    "settings":{"filter":null}},
+
+  {"type":"chart","name":"Maksimaalne tuulekiirus, grupeeritud organisatsioonide kaupa",
+    "settings":{"key":"organisatsioon","valueKey":"speedmax","filter":null}},
+
+  {"type":"chart","name":"Maksimaalsete temperatuuride ennustus, grupeeritud asukohtade kaupa",
+    "settings":{"key":"asukoht","valueKey":"tempmax","filter":null}},
+
+  {"type":"chart","name":"Minimaalsete temperatuuride ennustus, grupeeritud asukohtade kaupa",
+    "settings":{"key":"asukoht","valueKey":"tempmin","filter":null}}]}

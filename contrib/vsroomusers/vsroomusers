@@ -1,0 +1,49 @@
+#!/bin/sh
+myerr() {
+ echo $* 1>&2
+ exit 1
+}
+
+if [ $# -eq 1 ]
+then
+	command="$1"
+elif [ $# -eq 2 ]
+then
+    command="$1"
+    username="$2"
+else
+    myerr "Usage: $0 [ --list | --remove <username> ]"
+fi
+
+case $(uname) in 
+ Linux)
+	bot_host=$(hostname -f)
+	;;
+   *)
+	bot_host=$(hostname)
+	;;
+esac
+
+#bot_host=$(ejabberdctl status | grep "is started with status: started" | sed -e 's/.* [^ ]*@\([^ ]*\) .*/\1/')
+
+if [ -z $bot_host ]; then 
+        bot_host=localhost
+fi
+
+if [ "x--list" = "x${command}" ]; then 
+	ejabberdctl registered_users ${bot_host}
+	exit 0
+fi
+
+if [ "x--remove" = "x${command}" ]; then 
+	if [ -z ${username} ]; then 
+		myerr "Usage: $0 [ --list | --remove <username> ]"
+	fi
+    ejabberdctl unregister ${username} ${bot_host} || myerr "Could not unregister user."
+	if [ -f /var/lib/vsroom/.htpasswd ]
+	then
+		htpasswd -D /var/lib/vsroom/.htpasswd ${username} || myerr "Could not create htpasswd user."
+	else
+		myerr "Could not find the .htpasswd file."
+	fi
+fi

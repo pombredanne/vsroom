@@ -1,0 +1,18 @@
+*** PolymapsView.js	2011-10-20 23:22:43.804143230 +0300
+--- PolymapsView.js.localmaps	2011-10-20 23:21:41.860143230 +0300
+***************
+*** 489,499 ****
+--- 489,502 ----
+              .add(controls.touch)
+              .zoomRange([2,18]);
+  
++         /*
+          map.add(po.image()
+              .url(po.url("http://{S}tile.cloudmade.com"
+              + "/64659a541b60453882db1e488f2e239a"
+              + "/998/256/{Z}/{X}/{Y}.png")
+              .hosts(["a.", "b.", "c.", ""])));
++         */
++         map.add(po.image().url(po.url("../tiles/osm_tiles/{Z}/{X}/{Y}.png")));
+  
+          this._resize();

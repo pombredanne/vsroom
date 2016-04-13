@@ -1,0 +1,54 @@
+#!/bin/sh
+myerr() {
+ echo $* 1>&2
+ exit 1
+}
+if [ $# -ne 2 ]
+then
+    echo -n "Username (without the domain part): " 
+    read username
+    echo -n "Password: "
+    stty -echo
+    read password
+    stty echo
+    echo ""        
+elif [ $# -eq 2 ]
+then
+    username="$1"
+    password="$2"
+else
+    myerr "Usage: $0 [username_without_domain password]"
+fi
+
+case $(uname) in 
+ Linux)
+	bot_host=$(hostname -f)
+	;;
+   *)
+	bot_host=$(hostname)
+	;;
+esac
+
+#bot_host=$(ejabberdctl status | grep "is started with status: started" | sed -e 's/.* [^ ]*@\([^ ]*\) .*/\1/')
+if [ -z $bot_host ]; then 
+        bot_host=localhost
+fi
+
+ejabberdctl registered_users ${bot_host} | egrep "^${username}$"
+if [ $? -eq 0 ]
+then
+    echo "Ejabber account ${username} exists. Re-registering."
+    ejabberdctl unregister ${username} ${bot_host}
+    ejabberdctl register ${username} ${bot_host} "${password}" \
+	|| myerr "Could not change password."
+else 
+    ejabberdctl register ${username} ${bot_host} "${password}" || myerr "Could not register ejabber user."
+fi 
+
+if [ ! -f /var/lib/vsroom/.htpasswd ]
+then
+    echo "/var/lib/vsroom/.htpasswd did not exists, creating."
+    htpasswd -cbs /var/lib/vsroom/.htpasswd ${username} "${password}" || myerr "Could not create htpasswd user."
+else
+    htpasswd -bs /var/lib/vsroom/.htpasswd ${username} "${password}" || myerr "Could not create htpasswd user."
+fi

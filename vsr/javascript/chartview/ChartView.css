@@ -1,0 +1,62 @@
+.chartview-menu {
+    margin: 2px;
+    visibility: hidden;
+}
+
+.chartview-menu .button {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(100, 100, 100, 0.7);
+
+    padding-left: 5px;
+    padding-right: 5px;
+
+    cursor: pointer;
+}
+
+.chartview-menu .button:hover {
+    background: rgba(100, 100, 100, 0.9);
+}
+.right {
+    float: right;
+}
+.left {
+    float: left;
+}
+.chartview-menu .menu {
+    font-size: 0.75em;
+    cursor: pointer;
+}
+
+.chartview-menu .menu:hover .menu-header {
+    background: rgba(100, 100, 100, 0.9);
+}
+
+.chartview-menu .menu-list {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    position: absolute;
+    visibility: hidden;
+    background: rgba(100, 100, 100, 0.9);
+}
+
+.chartview-menu .menu:hover .menu-list {
+    visibility: visible;
+    z-index: 103;
+}
+
+.chartview-menu .menu-list-item {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.chartview-menu .menu-list-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.chartview-menu .menu-list-item:active {
+    background: darkred;
+}
+

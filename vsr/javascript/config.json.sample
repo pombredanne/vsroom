@@ -1,0 +1,4 @@
+{
+    "authUrl":  "../common/auth_credentials.php",
+    "boshUrl": "/bosh"
+}

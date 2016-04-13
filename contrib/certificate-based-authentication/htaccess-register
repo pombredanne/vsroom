@@ -1,0 +1,7 @@
+AddHandler mod_python .py
+PythonHandler register
+PythonDebug On
+SSLOptions +StdEnvVars
+PythonPath "sys.path + ['/var/lib/vsroom/certificate-auth/']"
+
+

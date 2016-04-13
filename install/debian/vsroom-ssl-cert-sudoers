@@ -1,0 +1,2 @@
+www-data ALL=(ejabberd) NOPASSWD: /usr/sbin/ejabberdctl
+

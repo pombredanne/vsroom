@@ -1,0 +1,13 @@
+--- vsroom-ssl	2010-10-14 01:55:03.000000000 +0300
++++ vsroom-ssl-cert	2010-10-14 01:56:04.000000000 +0300
+@@ -32,6 +32,10 @@
+         #   SSLCertificateFile directive is needed.
+         SSLCertificateFile    /etc/ssl/certs/ssl-cert-snakeoil.pem
+         SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
++	SSLCACertificateFile /etc/apache2/ESTEID/CA_list.crt
++	SSLVerifyClient require
++	SSLVerifyDepth 2
++
+         #   SSL Engine Options:
+         #   Set various options for the SSL engine.
+         #   o FakeBasicAuth:

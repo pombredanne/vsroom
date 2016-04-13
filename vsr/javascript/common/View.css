@@ -1,0 +1,47 @@
+.fieldset {
+}
+
+.fieldset.with-legend {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.fieldset.without-legend {
+}
+
+.fieldset-legend {
+}
+
+.fieldset input {
+    width: 70%;
+    display: inline;
+}
+
+.inputfield {
+}
+
+.inputfield.with-label {
+    text-align: right;
+}
+
+.inputfield.without-label {
+}
+
+.inputfield .inputfield-label {
+    padding-right: 10px;
+}
+
+.fieldset.combiner .fieldset-field {
+    text-align: right;
+}
+
+.fieldset.combiner .inputfield {
+    display: inline;
+}
+
+.fieldset.combiner select {
+    margin-right: 10px;
+}
+
+.fieldset.combiner input {
+}

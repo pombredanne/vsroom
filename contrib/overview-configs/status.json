@@ -1,0 +1,101 @@
+{
+    "views": [
+        {
+            "type": "map",
+            "name": "Map, sized by sum of status, colored by service.",
+            "settings": {
+                "groupBy": "service",
+                "areas": null,
+                "valueKey": null,
+                "valueCombiner": {
+                    "func": "sum",
+                    "key": "status"
+                },
+                "bounds": {
+                    "left": 21.58105802884532,
+                    "right": 28.024994759882013,
+                    "top": 59.62001420797344,
+                    "bottom": 57.68406429350446
+                },
+                "filter": null
+            }
+        },
+        {
+            "type": "map",
+            "name": "Map, sized by sum of status, colored by issue type.",
+            "settings": {
+                "groupBy": "type",
+                "areas": null,
+                "valueKey": null,
+                "valueCombiner": {
+                    "func": "sum",
+                    "key": "status"
+                },
+                "bounds": {
+                    "left": 20.738690797256403,
+                    "right": 29.0613092027436,
+                    "top": 59.89999999999998,
+                    "bottom": 57.39999999999998
+                },
+                "filter": null
+            }
+        },
+        {
+            "type": "classification",
+            "name": "Services and report types, highlighted by status.",
+            "settings": {
+                "xKey": "service",
+                "xGroupKey": "sector",
+                "yKey": "type",
+                "yGroupKey": "timing",
+                "valueCombiner": {
+                    "func": "sum",
+                    "key": "status"
+                },
+                "filter": null
+            }
+        },
+        {
+            "type": "classification",
+            "name": "Expected resolutions in different counties, highlighted by sum of problems.",
+            "settings": {
+                "xKey": "service",
+                "xGroupKey": "county",
+                "yKey": "planned end",
+                "yGroupKey": null,
+                "valueCombiner": {
+                    "func": "sum",
+                    "key": "status"
+                },
+                "filter": null
+            }
+        },
+        {
+            "type": "chart",
+            "name": "Timeline of Affected Clients and Estimated Resolution, splitted by organizations",
+            "settings": {
+                "key": "organization",
+                "valueKey": "affected_clients",
+                "valueCombiner": {
+                    "func": "sum",
+                    "key": "affected_clients"
+                },
+                "filter": null
+            }
+        },
+        {
+            "type": "list",
+            "name": "Event details",
+            "settings": {
+                "filter": "no lau_code"
+            }
+        },
+        {
+            "type": "list",
+            "name": "Channel participants",
+            "settings": {
+                "filter": "presence"
+            }
+        }
+    ]
+}

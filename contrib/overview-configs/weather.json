@@ -1,0 +1,22 @@
+{"views":[
+
+  {"type":"map","name":"Weather reports, colored by weather type, sized by potential problems.",
+    "settings":{"groupBy":"subtype","valueKey":null,"valueCombiner":{"func":"max","key":"problem"},"bounds":{"left":22.312653400028733,"right":30.32548198199108,"top":59.8504234803076,"bottom":57.46573659236725},"filter":null}},
+
+  {"type":"classification","name":"Critical Services Overview max(status)",
+    "settings":{"xKey":"service","xGroupKey":"organization","yKey":"type","yGroupKey":null,"valueCombiner":{"func":"max","key":"status"},"filter":null}},
+
+  {"type":"classification","name":"Areas - Issues sum(status)",
+    "settings":{"xKey":"area","xGroupKey":"service","yKey":"subtype","yGroupKey":"type","valueCombiner":{"func":"sum","key":"status"},"filter":null}},
+
+  {"type":"list","name":"Event details",
+    "settings":{"filter":null}},
+
+  {"type":"chart","name":"Max wind repots per organization",
+    "settings":{"key":"organization","valueKey":"speedmax","filter":null}},
+
+  {"type":"chart","name":"Maximum temperatures forecast, per area",
+    "settings":{"key":"area","valueKey":"tempmax","filter":null}},
+
+  {"type":"chart","name":"Minimum temperatures forecast, per area",
+    "settings":{"key":"area","valueKey":"tempmin","filter":null}}]}
