@@ -14,5 +14,5 @@ addons:
       description: "Virtual Situation Room for visualizing Abusehelper events."
     notification_email: erani@iki.fi
     build_command_prepend: ""
-    build_command: "npm install"
+    build_command: "--fs-capture-search ./vsr"
     branch_pattern: coverity_scan
