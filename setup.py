@@ -64,8 +64,8 @@ setup(
     ),
     author="Clarified Networks",
     author_email="contact@clarifiednetworks.com",
-    url="https://bitbucket.org/clarifiednetworks/vsroom",
-    download_url="https://bitbucket.org/clarifiednetworks/vsroom/downloads",
+    url="https://github.com/softcert/vsroom",
+    download_url="https://github.com/softcert/vsroom/downloads",
     license="MIT",
 )
 

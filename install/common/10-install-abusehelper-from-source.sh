@@ -8,7 +8,7 @@ if [ $? -eq 0 ]; then
 else
   GETTER=wget
 fi
-URL=https://bitbucket.org/clarifiednetworks/abusehelper/get/tip.tar.gz
+URL=https://github.com/abusesa/abusehelper/archive/master.tar.gz
 
 ${GETTER} $URL >tip.tar.gz
 tar -xzf tip.tar.gz
