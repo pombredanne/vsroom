@@ -1,0 +1,15 @@
+language: javascript
+
+env:
+  global:
+   - secure: "Fdb6Yk7/bMjOaTYyNtc4Wm2F89Mvs3v+6O5UlCBDf+8nmJq1JaptPwdDVVMawe+iBAcjTpnVnhyjkhlb33WBSY095wjXJyxQ0OyXtPNxV79sSff5wW7xu+tpj5UzobC0KUJszr6BrlzGt3L2oM4gazlmsZ+pb+ao+EmTWl+x1DyBBqujYc8BEOgDVksgDfJa7OwJZmQOOYD3Bgzo9AKDZR+y98+/8oxuSIZ0zul8rbUju8rCU1vXqJLwc3OMwCDcIG+BZO9cJnzl8kFA7Z//tQwPtMwI55549rWOikj1W5f7L4iAI4R/fMUY1VqJL0hPdcbZzK1YfM6Z1RcX99VuArxTldzdxv3hPFhirURbqf2ukYXhQAn+4KwD9bRmQF7muDPOpBVjfrB5q5oZG7SAqkg3gNAuJ9GvnCnySL5t4awNIA7L0LJOSC9CIIblJ4C/z6ayKwL8itWJWD3OLU09vQD8RIEgAMUh4Ug6XMNin2g+/Z7QpZU3UFN3CteWfK6MAuh2aCYG0+5siLBwbwOJ9jJM3JYn64thyzIQUTAMLx0L8QqHlpQ112nSbsXF1lkv5i50qxTAWWR2ATjbzyaxsqVuDkux9CjImiTdP6AEITo1YbHwV2IOQ1FczoXRv6UfNpDldYTnxm6QRpE9H/v8SnQawdLrAYlXTTq/l6E6BXg="
+
+addons:
+  coverity_scan:
+    project:
+      name: "softcert/vsroom"
+      description: "Virtual Situation Room for visualizing Abusehelper events."
+    # notification_email:  
+    # build_command_prepend: "<Your build preprocessing command here>"
+    # build_command:   "<Your build command here>"
+    branch_pattern: master
