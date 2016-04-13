@@ -13,6 +13,6 @@ addons:
       name: "softcert/vsroom"
       description: "Virtual Situation Room for visualizing Abusehelper events."
     notification_email: erani@iki.fi
-    #build_command_prepend: ""
-    #build_command:   "npm run test"
+    build_command_prepend: ""
+    build_command: ""
     branch_pattern: coverity_scan
